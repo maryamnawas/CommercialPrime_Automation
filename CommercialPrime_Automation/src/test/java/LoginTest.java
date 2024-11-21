@@ -33,10 +33,10 @@ public class LoginTest {
 
         // Validate login (check for successful navigation or specific element)
         String expectedUrl = "https://play.primeq.co/home";
-        if (Objects.equals(driver.getCurrentUrl(), expectedUrl)) {
-            System.out.println("Login successful!");
-        } else {
+        if (Objects.requireNonNull(driver.getCurrentUrl()).equals(expectedUrl)) {
             System.out.println("Login failed.");
+        } else {
+            System.out.println("Login successful!");
         }
     }
 }
