@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Objects;
+
 public class LoginTest {
     WebDriver driver;
 
@@ -28,5 +30,13 @@ public class LoginTest {
         // Locate and click the login button
         WebElement loginButton = driver.findElement(By.className("LoginForm_LoginButton__xSMas"));
         loginButton.click();
+
+        // Validate login (check for successful navigation or specific element)
+        String expectedUrl = "https://play.primeq.co/home";
+        if (Objects.equals(driver.getCurrentUrl(), expectedUrl)) {
+            System.out.println("Login successful!");
+        } else {
+            System.out.println("Login failed.");
+        }
     }
 }
