@@ -62,4 +62,23 @@ public class LoginTest {
             System.out.println("Unable to determine the state of High Privacy Mode.");
         }
     }
+
+    @Test
+    public void CardActivateTest(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement cardStatusElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//p[contains(@class, 'Home_AccountStatusActive') or contains(@class, 'Home_AccountStatusInactive')]")
+        ));
+
+//        WebElement cardStatusElement = driver.findElement(By.xpath("//p[contains(@class, 'Home_AccountStatusActive') or contains(@class, 'Home_AccountStatusInactive')]"));
+        String cardStatus = cardStatusElement.getText();
+
+        if (cardStatus.equals("Card Active")) {
+            System.out.println("The card is active.");
+        } else if (cardStatus.equals("Card Inactive")) {
+            System.out.println("The card is inactive.");
+        } else {
+            System.out.println("Unable to determine card status. Found: " + cardStatus);
+        }
+    }
 }
