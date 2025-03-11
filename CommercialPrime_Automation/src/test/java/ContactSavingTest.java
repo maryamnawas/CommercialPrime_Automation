@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 import java.util.Objects;
 
-public class EditProfileTest {
+public class ContactSavingTest {
     WebDriver driver;
 
     @BeforeMethod
@@ -40,7 +40,4 @@ public class EditProfileTest {
             System.out.println("Login failed.");
         }
     }
-
-
-    
 }
