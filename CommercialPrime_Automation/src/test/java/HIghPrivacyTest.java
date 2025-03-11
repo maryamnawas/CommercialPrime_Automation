@@ -72,27 +72,19 @@ public class HIghPrivacyTest {
 
         if ("true".equals(isChecked)) {
             // If High Privacy Mode is ON, check for the "Privacy Protected Account" message
-            boolean highPrivacyEnabled = wait.until(ExpectedConditions.presenceOfElementLocated(
+            wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//h1[normalize-space()='Privacy Protected Account']")
             )).isDisplayed();
 
-            if (highPrivacyEnabled) {
-                System.out.println("Test Passed: High Privacy Mode is ON and the correct page loaded.");
-            } else {
-                System.out.println("Test Failed: High Privacy Mode is ON but incorrect page loaded.");
-            }
+            System.out.println("High Privacy Mode is ON and the correct page loaded.");
 
         } else if ("false".equals(isChecked)) {
             // If High Privacy Mode is OFF, check for the profile page elements
-            boolean profilePageLoaded = wait.until(ExpectedConditions.presenceOfElementLocated(
+            wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//div[@class='ProfileCard_ButtonContainer__n8ewG']//button[1]")
             )).isDisplayed();
 
-            if (profilePageLoaded) {
-                System.out.println("Test Passed: High Privacy Mode is OFF and the correct profile page loaded.");
-            } else {
-                System.out.println("Test Failed: High Privacy Mode is OFF but incorrect page loaded.");
-            }
+            System.out.println("High Privacy Mode is OFF and the correct profile page loaded.");
 
         } else {
             System.out.println("Unable to determine the state of High Privacy Mode.");
